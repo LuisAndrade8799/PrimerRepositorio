@@ -24,6 +24,7 @@ public class ProyectoReloj {
         DateFormat df = new SimpleDateFormat("hh:mm:ss");
        
         while(true){
+            
             reloj = new Date();
             System.out.println(df.format(reloj));
             
