@@ -4,6 +4,7 @@
  */
 package pe.cered.reloj;
 
+import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,9 +23,10 @@ public class ProyectoReloj {
         // TODO code application logic here
         Date reloj;
         DateFormat df = new SimpleDateFormat("hh:mm:ss");
-       
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        
         while(true){
-            
+            tk.beep();
             reloj = new Date();
             System.out.println(df.format(reloj));
             
