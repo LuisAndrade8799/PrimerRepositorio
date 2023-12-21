@@ -8,6 +8,10 @@ import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
 
 /**
  *
@@ -21,7 +25,7 @@ public class ProyectoReloj {
      */
     public static void main(String[] args) throws Exception{
         // TODO code application logic here
-        Date reloj;
+        /*Date reloj;
         DateFormat df = new SimpleDateFormat("hh:mm:ss");
         Toolkit tk = Toolkit.getDefaultToolkit();
         
@@ -31,9 +35,20 @@ public class ProyectoReloj {
             System.out.println(df.format(reloj));
             
             Thread.sleep(1000);
-        }
-        
-        
+        }*/
+        Timer t1 = new Timer();
+        t1.scheduleAtFixedRate(new TimerTask() {
+            private Date reloj;
+            private DateFormat df = new SimpleDateFormat("hh:mm:ss");
+            private Toolkit tk = Toolkit.getDefaultToolkit();
+            @Override
+            public void run() {
+                reloj = new Date();
+                tk.beep();
+                System.out.println(df.format(reloj));
+            }
+        },0,1000);
+
         
         
     }
